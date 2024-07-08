@@ -1,0 +1,74 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4trxqi1hn2db"]
+
+[ext_resource type="Script" path="res://example/main_menu.gd" id="1_5q51d"]
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_5q51d")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.358507
+anchor_top = 0.371914
+anchor_right = 0.642361
+anchor_bottom = 0.628086
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Host" type="MarginContainer" parent="TabContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Host"]
+layout_mode = 2
+alignment = 1
+
+[node name="host_port" type="LineEdit" parent="TabContainer/Host/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "42069"
+placeholder_text = "Port"
+
+[node name="host_max_players" type="LineEdit" parent="TabContainer/Host/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "32"
+placeholder_text = "Max Players"
+
+[node name="host_button" type="Button" parent="TabContainer/Host/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Host"
+
+[node name="Join" type="MarginContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Join"]
+layout_mode = 2
+alignment = 1
+
+[node name="join_port" type="LineEdit" parent="TabContainer/Join/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "42069"
+placeholder_text = "Port"
+
+[node name="join_ip" type="LineEdit" parent="TabContainer/Join/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "localhost"
+placeholder_text = "IP Address"
+
+[node name="join_button" type="Button" parent="TabContainer/Join/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Join
+"
