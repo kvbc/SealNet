@@ -6,8 +6,9 @@ const DEACCELL = 1000.0
 func move_in_direction(direction: Vector2):
 	velocity += direction * ACCELL * 1.0 / Engine.physics_ticks_per_second
 
-func correct_position(target_position: Vector2):
+func correct(target_position: Vector2, target_velocity: Vector2):
 	global_position = target_position
+	velocity = target_velocity
 
 func _ready():
 	name = str(SealNet.get_owner_netid(self))
@@ -16,9 +17,7 @@ func _ready():
 	if SealNet.is_owner(self):
 		add_child(Camera2D.new())
 		
-	SealNet.network_process.connect(func():
-		Network.update_player_position(self)
-	)
+	Network.start_correcting_player(self)
 
 func _physics_process(delta):
 	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
